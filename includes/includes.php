@@ -17,6 +17,4 @@
 	require_once 'comment.php';
 	require_once 'openday.php';
 
-	//files
-	require_once 'open_day.php';
 ?>

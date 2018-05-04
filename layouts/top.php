@@ -20,6 +20,9 @@
 
 
 ?>
+<?php
+    include 'includes/open_day.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
