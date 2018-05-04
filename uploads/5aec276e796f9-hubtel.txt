@@ -1,0 +1,60 @@
+		$invoice = array(
+		'invoice' => array(
+			'items' => array(
+				'item_0' => array(
+				      'name' => $_POST['txtRoute'],
+				      'quantity' => $_POST['txtQuantity'],
+				      'unit_price' => $_POST['txtFare'],
+				      'total_price' => $_POST['txtQuantity']*$_POST['txtFare'],
+				      'description' => $_POST['txtFullName'].' order from VIP JEOUN'
+					)
+				),
+
+			'total_amount' => $_POST['txtQuantity']*$_POST['txtFare'],
+			'description' => 'Cost of'.$_POST['txtQuantity']*$_POST['txtFare'].'ticket'
+
+			),
+		'store' => array(
+			'name' => 'VIP JEOUN TRANSPORT COMPANY',
+			'tagline' => 'VIP',
+			'phone' => '+2335417698',
+			'website_url' => 'http://localhost/tms/'
+			),
+
+		'actions' => array(
+			'cancel_url' => 'http://joey.byethost9.com/tms/buy_ticket.php',
+			'return_url' => 'http://joey.byethost9.com/tms/finale.php'
+			),
+		);
+
+	$clientId = 'qnvoxwdz';
+	$clientSecret = 'efuglvgg';
+	$basic_auth_key =  'Basic ' . base64_encode($clientId . ':' . $clientSecret);
+	$request_url = 'https://api.hubtel.com/v1/merchantaccount/onlinecheckout/invoice/create';
+	$create_invoice = json_encode($invoice);
+
+	$ch =  curl_init($request_url);  
+			curl_setopt( $ch, CURLOPT_POST, true );  
+			curl_setopt( $ch, CURLOPT_POSTFIELDS, $create_invoice);  
+			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );  
+			curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
+			    'Authorization: '.$basic_auth_key,
+			    'Cache-Control: no-cache',
+			    'Content-Type: application/json',
+			  ));
+
+	$result = curl_exec($ch); 
+	$error = curl_error($ch);
+	curl_close($ch);
+
+	if($error){
+		echo $error;
+	}else{
+		// redirect customer to checkout
+		$response_param = json_decode($result);
+		$redirect_url = $response_param->response_text;
+		header('Location: '.$redirect_url);
+
+	}
+
+	}
