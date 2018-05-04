@@ -141,7 +141,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="open_day.php"><i class="fa fa-th"></i>Open Day</a>
+                                        <a href="manage_open_day.php"><i class="fa fa-th"></i>Open Day</a>
                                     </li>
                                     
                                   
