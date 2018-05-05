@@ -143,6 +143,18 @@
                                     <li>
                                         <a href="manage_open_day.php"><i class="fa fa-th"></i>Open Day</a>
                                     </li>
+
+                                    <li>
+                                        <a href="project_docs_upload.php"><i class="fa fa-file-o"></i>Upload Project Documents</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="upload_scores.php"><i class="fa fa-file-o"></i>Upload Scores</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="defense_scores_report.php"><i class="fa fa-file-o"></i>Defense Scores Report</a>
+                                    </li>
                                     
                                   
                                 <?php
@@ -248,7 +260,18 @@
                                             <span class=" fa fa-angle-down"></span>
                                         </a>
                                         <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                            <li><a href="docs/synopsis.docx">Synopsis</a></li>
+                                            <?php
+                                                $f = $database->query_db("SELECT * FROM project_documents");
+                                                    $counter = 1;
+                                                    while($file = $database->fetch_array($f)){
+                                                ?>
+
+                                                <li><a href="uploads/<?php echo $file['file'] ?>" target="_blank"><?php echo ucfirst($file['name']); ?></a></li>
+
+                                                <?php
+                                                    $counter +=1 ;
+                                                    }
+                                                ?>
                                         </ul>
                                     </li>
                                     

@@ -83,6 +83,14 @@
 			return $name;
 		}
 
+		public static function get_student_name($id){
+			global $database;
+			$n = $database->query_db("SELECT full_name FROM users WHERE student_id = '".$id."' ");
+			$result = $database->fetch_array($n);
+			$name = $result['full_name'];
+			return $name;
+		}
+
 
 
 

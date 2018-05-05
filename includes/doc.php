@@ -19,7 +19,7 @@
 			
 
 			//checking if student has already uploaded
-			$st = Doc::check_status($student_id, $chapter_id);
+			$st = Doc::find($student_id, $chapter_id);
 		    $status = $database->fetch_array($st);
 			if( strlen($status['status']) > 0 ){
 				$result = $database->query_db("UPDATE docs SET file = '".$file."', date_uploaded = CURDATE(), status = 'warning' WHERE student_id = '".$student_id."' AND chapter_id = '".$chapter_id."' ");

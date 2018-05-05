@@ -24,6 +24,17 @@
     }
   }
 
+  //endorse student code
+  if(isset($_POST['btnEndorse'])){
+    $result = $database->query_db("INSERT INTO defences(student_id) VALUES('".$_GET['student_id']."')");
+    if($result){
+      $message = "<div class='alert alert-success col-md-4 col-md-offset-4 text-center'>STUDENT ENDORSED</div>";
+    }
+    else{
+      $message = "<div class='alert alert-danger col-md-4 col-md-offset-4 text-center'>FAILED TO ENDORSE STUDENT</div>";
+    }
+  }
+
 ?>
 
 <?php
@@ -52,6 +63,7 @@
     </div>
 </div>
 <div class="clearfix"></div>
+<div class="row"> <?php if(isset($message)) { echo $message; } ?></div>
 <div class="row">
   <div class="col-md-12">
       <div class="x_panel">
@@ -228,9 +240,22 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-xs-12">
-                    <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-                    <!-- <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button> -->
-                    <!-- <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button> -->
+                  <?php
+                      $de = $database->query_db("SELECT * FROM defences WHERE student_id = '".$_GET['student_id']."' ");
+                      if($database->num_rows($de) == 1){
+                  ?>
+                      <button class="btn btn-success"><span class="fa fa-thumbs-up"></span>Cleared</button>
+                  <?php
+                      }
+                      else{
+                  ?>
+                      <form method="post">
+                        <button class="btn btn-success" type="submit" name="btnEndorse">Endorse Student</button>
+                      </form>
+                  <?php
+                      }
+                  ?>
+                    
                 </div>
             </div>
           </section>

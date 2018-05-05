@@ -88,6 +88,72 @@
             } 
         
         ?>
+        <tr>
+            <td class=" "><?php echo $counter; ?>.</td>
+            <td class=" ">Defence Clearance</td>
+            <td class=" ">
+                <?php
+                    $de = $database->query_db("SELECT * FROM defences WHERE student_id = '".$_SESSION['student_id']."' ");
+                    if($database->num_rows($de) == 1){
+                ?>
+                    <button class="btn btn-success"><span class="fa fa-thumbs-up"></span>Cleared</button>
+                <?php
+                    }
+                    else{
+                ?>
+                    <button class="btn btn-danger"><span class="fa fa-thumbs-up"></span>Not Cleared</button>
+                <?php
+                    }
+                ?>
+            </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+
+        <tr>
+            <td class=" "><?php echo $counter + 1; ?>.</td>
+            <td class=" ">Internal Assessment</td>
+            <td class=" ">
+                <?php
+                    $de = $database->query_db("SELECT * FROM defences WHERE student_id = '".$_SESSION['student_id']."' ");
+                    $internal = $database->fetch_array($de);
+                    if($internal['internal_score'] == 0.00){
+                ?>
+                    <button class="btn btn-danger"><span class="fa fa-thumbs-down"></span>Not Uploaded</button>
+                <?php
+                    }
+                    elseif($internal['internal_score'] > 0.00){
+                ?>
+                    <button class="btn btn-success"><span class="fa fa-thumbs-up"></span>Uploaded</button>
+                <?php
+                    }
+                ?>
+            </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <td class=" "><?php echo $counter + 2; ?>.</td>
+            <td class=" ">External Assessment</td>
+            <td class=" ">
+                <?php
+                    $de = $database->query_db("SELECT * FROM defences WHERE student_id = '".$_SESSION['student_id']."' ");
+                    $external = $database->fetch_array($de);
+                    if($external['external_score'] == 0.00){
+                ?>
+                    <button class="btn btn-danger"><span class="fa fa-thumbs-down"></span>Not Uploaded</button>
+                <?php
+                    }
+                    elseif($external['external_score'] > 0.00){
+                ?>
+                    <button class="btn btn-success"><span class="fa fa-thumbs-up"></span>Uploaded</button>
+                <?php
+                    }
+                ?>
+            </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
          
     </tbody>
 
