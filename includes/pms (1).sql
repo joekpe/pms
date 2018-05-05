@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2018 at 07:39 PM
+-- Generation Time: May 06, 2018 at 01:46 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -95,6 +95,26 @@ INSERT INTO `comments` (`comment_id`, `doc_id`, `chapter_id`, `supervisor_id`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `defences`
+--
+
+CREATE TABLE `defences` (
+  `id` int(11) NOT NULL,
+  `student_id` varchar(255) NOT NULL,
+  `internal_score` decimal(6,2) NOT NULL,
+  `external_score` decimal(6,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `defences`
+--
+
+INSERT INTO `defences` (`id`, `student_id`, `internal_score`, `external_score`) VALUES
+(2, 'STD1', '40.00', '35.00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `docs`
 --
 
@@ -113,7 +133,10 @@ CREATE TABLE `docs` (
 
 INSERT INTO `docs` (`doc_id`, `chapter_id`, `student_id`, `file`, `date_uploaded`, `status`) VALUES
 (1, '1', 'STD1', '5aec4d303153f-Fish4jobs_Web_Developer_template.docx', '2018-05-04', 'success'),
-(2, '2', 'STD1', '5aec2785787d1-jhs 3 science.docx', '2018-05-04', 'warning');
+(2, '2', 'STD1', '5aec2785787d1-jhs 3 science.docx', '2018-05-04', 'success'),
+(3, '3', 'STD1', '5aee207099229-5aea41bcbdb92-ptest.docx', '2018-05-05', 'success'),
+(4, '4', 'STD1', '5aee20c366165-5aea41bcbdb92-ptest.docx', '2018-05-05', 'success'),
+(5, '5', 'STD1', '5aee20c99325a-5aea41bcbdb92-ptest.docx', '2018-05-05', 'success');
 
 -- --------------------------------------------------------
 
@@ -158,6 +181,26 @@ CREATE TABLE `pairings` (
 INSERT INTO `pairings` (`id`, `student_id`, `supervisor_id`, `synopsis_id`, `academic_year`) VALUES
 (1, 'STD1', '2', '1', '1'),
 (2, 'STD2', '2', '2', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_documents`
+--
+
+CREATE TABLE `project_documents` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `file` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `project_documents`
+--
+
+INSERT INTO `project_documents` (`id`, `name`, `file`) VALUES
+(2, 'Synopsis', '5aee2ed68cfd2-synopsis.docx'),
+(3, 'Defense Application Form', '5aee2eec91b75-Application to Defend Project Work 2018.pdf');
 
 -- --------------------------------------------------------
 
@@ -234,6 +277,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`);
 
 --
+-- Indexes for table `defences`
+--
+ALTER TABLE `defences`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `docs`
 --
 ALTER TABLE `docs`
@@ -249,6 +298,12 @@ ALTER TABLE `open_days`
 -- Indexes for table `pairings`
 --
 ALTER TABLE `pairings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_documents`
+--
+ALTER TABLE `project_documents`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -288,10 +343,16 @@ ALTER TABLE `comments`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `defences`
+--
+ALTER TABLE `defences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `docs`
 --
 ALTER TABLE `docs`
-  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `open_days`
@@ -304,6 +365,12 @@ ALTER TABLE `open_days`
 --
 ALTER TABLE `pairings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `project_documents`
+--
+ALTER TABLE `project_documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `synopsis`
