@@ -14,6 +14,27 @@
 			return $number;
 		}
 
+		public static function approved_projects(){
+			global $database;
+			$result = $database->query_db("SELECT * FROM synopsis WHERE status = '".APPROVED."'");
+			$number = $database->num_rows($result);
+			return $number;
+		}
+
+		public static function pending_projects(){
+			global $database;
+			$result = $database->query_db("SELECT * FROM synopsis WHERE status = 'warning' ");
+			$number = $database->num_rows($result);
+			return $number;
+		}
+
+		public static function declined_projects(){
+			global $database;
+			$result = $database->query_db("SELECT * FROM synopsis WHERE status = '".DECLINED."'");
+			$number = $database->num_rows($result);
+			return $number;
+		}
+
 		public static function new_synopsis($student_id, $academic_year, $file, $topic){
 			global $database;
 			

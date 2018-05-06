@@ -8,7 +8,7 @@
 <div class="">
 
     <div class="row top_tiles">
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
                 <div class="icon"><i class="fa fa-users"></i>
                 </div>
@@ -17,6 +17,60 @@
                 <h3>Users</h3>
             </div>
         </div>
+    
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-users"></i>
+                </div>
+                <div class="count"><?php echo User::total_students(); ?></div>
+
+                <h3>Students</h3>
+            </div>
+        </div>
+
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-users"></i>
+                </div>
+                <div class="count"><?php echo User::total_supervisors(); ?></div>
+
+                <h3>Lecturers</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row top_tiles">
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-thumbs-up"></i>
+                </div>
+                <div class="count"><?php echo Synopsis::approved_projects(); ?></div>
+
+                <h3>Approved Projects</h3>
+            </div>
+        </div>
+    
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-pause"></i>
+                </div>
+                <div class="count"><?php echo Synopsis::pending_projects(); ?></div>
+
+                <h3>Pending Projects</h3>
+            </div>
+        </div>
+
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-thumbs-down"></i>
+                </div>
+                <div class="count"><?php echo Synopsis::declined_projects(); ?></div>
+
+                <h3>Declined Projects</h3>
+            </div>
+        </div>
+
     </div>
 </div>
 <?php

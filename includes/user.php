@@ -18,6 +18,20 @@
 			return $number;
 		}
 
+		public static function total_students(){
+			global $database;
+			$result = $database->query_db("SELECT * FROM users WHERE access_level = '".STUDENT."' ");
+			$number = $database->num_rows($result);
+			return $number;
+		}
+
+		public static function total_supervisors(){
+			global $database;
+			$result = $database->query_db("SELECT * FROM users WHERE access_level = '".SUPERVISOR."' ");
+			$number = $database->num_rows($result);
+			return $number;
+		}
+
 		public static function new_user($full_name, $email, $phone, $password, $access_level, $student_id){
 			global $database;
 			$result = $database->query_db("INSERT INTO users(full_name, email, phone, password, access_level, student_id) VALUES('".$full_name."', '".$email."', '".$phone."', '".sha1($password)."', '".$access_level."', '".$student_id."')");
