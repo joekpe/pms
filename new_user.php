@@ -72,7 +72,7 @@
                         </div><br>
                         <div style="display:none;" id="student_id">
                         	<label>Student Id</label>
-                            <input type="password" class="form-control" placeholder="Enter Student ID" required="" name="txtStudentId" />
+                            <input type="text" class="form-control" placeholder="Enter Student ID" required="" name="txtStudentId" />
                         </div><br>
                                              
                               <div><button type="submit" name="btnAddUser" class="btn btn-success"><span class="fa fa-user"></span> Add User</button></div>
