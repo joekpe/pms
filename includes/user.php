@@ -56,6 +56,12 @@
 			return $results;
 		}
 
+		public static function reset_student_password($student_id){
+			global $database;
+			$results = $database->query_db("UPDATE users SET password = '".sha1($student_id)."' WHERE student_id='".$student_id."'");
+			return $results;
+		}
+
 		public static function find_by_id($id){
 			global $database;
 			$results = $database->query_db("SELECT * FROM users WHERE user_id='".$id."'");
@@ -70,7 +76,7 @@
 
 		public static function find_all(){
 			global $database;
-			$results = $database->query_db("SELECT * FROM users WHERE deleted='no'");
+			$results = $database->query_db("SELECT * FROM users WHERE deleted='no' AND user_id != '".$_SESSION['user_id']."' ");
 			return $results;
 		}
 
