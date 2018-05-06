@@ -62,8 +62,8 @@
 	                                    <td class=" "><?php echo $academic_year['academic_year']; ?></td>
 	                                    <td class=" ">
 	                                    	<div class="btn-group" role="group" aria-label="...">
-											  <a href="edit_aca_year.php?id=<?php echo $user['user_id']; ?>" class="btn btn-default btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
-											  <a href="delete_aca_year.php?id=<?php echo $user['user_id']; ?>" class="btn btn-default btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+											  <a href="edit_aca_year.php?id=<?php echo $academic_year['id']; ?>" class="btn btn-default btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+											  <a href="delete_aca_year.php?id=<?php echo $academic_year['id']; ?>" class="btn btn-default btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
 											</div>
 	                                    </td>
 	                                </tr>
