@@ -50,6 +50,7 @@
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://printjs-4de6.kxcdn.com/print.min.css" rel="stylesheet">
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/nprogress.js"></script>
@@ -62,7 +63,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.css">
     <script type="text/javascript" language="javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="assets/js/jquery.dataTables.js"></script>
-       
+    <script type="text/javascript" language="javascript" src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+
 
 </head>
 

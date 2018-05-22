@@ -13,7 +13,9 @@
 					<h3><small>Manage Users</small></h3>
 				</div>
 				<div class="col-md-6">
-
+                    <button type="button" class="btn btn-primary pull-right" onclick="printJS({ printable: 'printJS-form', type: 'html', header: 'Defense Scores Report' })">
+                        Print
+                    </button>
 				</div>
 			</div>
 			<?php
@@ -35,7 +37,7 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="x_content">
+                        <div class="x_content" id="printJS-form">
 
                             <table class="table table-striped responsive-utilities jambo_table bulk_action">
                                 <thead>

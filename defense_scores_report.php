@@ -8,9 +8,12 @@
 			<div class="row x_title">
 				<div class="col-md-6">
 					<h3><small>Defense Scores Report</small></h3>
+
 				</div>
 				<div class="col-md-6">
-
+                    <button type="button" class="btn btn-primary pull-right" onclick="printJS({ printable: 'printJS-form', type: 'html', header: 'Defense Scores Report' })">
+                        Print
+                    </button>
 				</div>
 			</div>
 			
@@ -41,7 +44,7 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="x_content">
+                        <div class="x_content" id="printJS-form">
                         	<div class="row"> <?php if(isset($message)) { echo $message; } ?></div>
                         	<?php
                         		$data = Synopsis::find_all_for_year(@$_GET['year']);
