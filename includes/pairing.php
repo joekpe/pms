@@ -20,6 +20,12 @@
 			return $results;
 		}
 
+		public static function total_assigned_students($lecturer_id){
+			global $database;
+			$results = $database->query_db("SELECT * FROM pairings WHERE supervisor_id = '".$lecturer_id."' ");
+			return $database->num_rows($results);
+		}
+
 		
 
 	}

@@ -155,6 +155,10 @@
                                     <li>
                                         <a href="defense_scores_report.php"><i class="fa fa-file-o"></i>Defense Scores Report</a>
                                     </li>
+
+                                    <li>
+                                        <a href="reset_student_password.php"><i class="fa fa-lock"></i>Reset Student Password</a>
+                                    </li>
                                     
                                   
                                 <?php
