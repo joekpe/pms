@@ -162,6 +162,10 @@
                                     <li>
                                         <a href="reset_student_password.php"><i class="fa fa-lock"></i>Reset Student Password</a>
                                     </li>
+
+                                    <li>
+                                        <a href="list_reports.php"><i class="fa fa-file-o"></i>Reports</a>
+                                    </li>
                                     
                                   
                                 <?php

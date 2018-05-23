@@ -111,6 +111,12 @@
 			return $name;
 		}
 
+		public static function get_students_for_year($year){
+			global $database;
+			$results = $database->query_db("SELECT * FROM synopsis WHERE academic_year = '".$year."' ");
+			return $results;
+		}
+
 
 
 
