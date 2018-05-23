@@ -21,6 +21,18 @@
             </div>
         </div>
 
+        <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-file"></i>
+                </div>
+                <div class="count"><?php echo Synopsis::total_synopsis(); ?></div>
+
+                <h3>Synopsis</h3>
+
+            <p class="text-right"><a href="synopsis_report.php">View Report</a></p>
+            </div>
+        </div>
+
     </div>
 
 

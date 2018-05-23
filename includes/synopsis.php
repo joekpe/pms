@@ -14,6 +14,13 @@
 			return $number;
 		}
 
+		public static function total_synopsis(){
+			global $database;
+			$result = $database->query_db("SELECT * FROM synopsis");
+			$number = $database->num_rows($result);
+			return $number;
+		}
+
 		public static function approved_projects(){
 			global $database;
 			$result = $database->query_db("SELECT * FROM synopsis WHERE status = '".APPROVED."'");
